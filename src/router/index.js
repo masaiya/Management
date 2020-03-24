@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from "../components/Login";
 import Home from "../components/Home";
+import Users from "../components/users/Users";
 
 Vue.use(VueRouter);
 
@@ -16,13 +17,19 @@ const routes = [
   },
   {
     path: '/home',
-    component: Home
+    component: Home,
+    redirect: '/users',
+    children: [
+      {
+        path: '/users',
+        component: Users
+      }
+    ]
   }
 ];
 
 const router = new VueRouter({
   mode: 'history',
-  /*base: process.env.BASE_URL,*/
   routes
 });
 // 挂载路由导航守卫
