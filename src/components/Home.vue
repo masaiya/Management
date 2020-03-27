@@ -41,7 +41,7 @@
         </el-menu>
       </el-aside>
       <!--右侧主体内容-->
-      <el-main>
+      <el-main class="main">
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -98,6 +98,7 @@
 <style lang="less">
   .el-container {
     height: 100%;
+    overflow: hidden;
   }
   .el-header {
     background-color: #373d41;
