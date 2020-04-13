@@ -20,11 +20,9 @@
       // 3.基于准备好的dom，初始化echarts实例
       var myChart = echarts.init(document.getElementById('main'));
       const {data: res} = await this.$http.get('reports/type/1');
-      console.log(res);
       if(res.meta.status !== 200) 
         return this.$message.error('获取折线图数据失败');
       // 4.准备数据和配置项
-      res.data.xAxis[0].boundaryGap = false;
       const option = Object.assign(res.data,this.chartOption);
       // 5.展示数据
       myChart.setOption(option); 

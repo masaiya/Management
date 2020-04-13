@@ -16,8 +16,7 @@
         <div class="toggle-button" @click="toggleCollapse">|||</div>
         <el-menu background-color="#333744" text-color="#fff" active-text-color="#409eff"
                  unique-opened :collapse="isCollapse" :collapse-transition=false
-                 router
-                 :default-active="activePath">
+                 router :default-active="activePath">
           <!--一级菜单-->
           <el-submenu :index="item.id + ''" v-for="item in menuList" :key="item.id" >
             <!--一级菜单模板-->
@@ -47,7 +46,6 @@
     </el-container>
   </el-container>
 </template>
-
 <script>
   export default {
     name: "Home",
@@ -91,11 +89,10 @@
     },
     created() {
       this.getMenuList();
-      this.activePath = window.sessionStorage.getItem('activePath');
     }
   }
 </script>
-<style lang="less">
+<style lang="less" scoped>
   .el-container {
     height: 100%;
     overflow: hidden;
@@ -107,20 +104,20 @@
     padding-left: 0;
     align-items: center;
     color: #fff;
-    font-size: 20px;
-    .header-div {
-      display: flex;
-      align-items: center;
-      > span {
-        margin-left: 15px;
-      }
-    }
+    font-size: 20px; 
+  }
+  .header-div {
+    display: flex;
+    align-items: center;
+  }
+  .header-div > span {
+    margin-left: 15px;
   }
   .el-aside {
     background-color: #333744;
-    .el-menu {
-      border: 0;
-    }
+  }
+  .el-menu {
+    border: 0;
   }
   .el-main {
     background-color: #eaedf1;
